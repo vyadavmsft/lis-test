@@ -243,5 +243,13 @@ if grep FAIL $LTP_OUTPUT ; then
     grep FAIL $LTP_OUTPUT | cut -d':' -f 2- >> ~/summary.log
 fi
 
-UpdateTestState $ICA_TESTCOMPLETED
-exit 0
+val=`cat summary.log | grep "Total Failures" | awk '{print $3}'`
+comp_val="125"
+
+if [[ "$val" -ge "$comp_val" ]];then
+        UpdateTestState $ICA_TESTFAILED
+        exit 1
+else
+        UpdateTestState $ICA_TESTCOMPLETED
+        exit 0
+fi
