@@ -763,6 +763,8 @@ function RunTests ([String] $xmlFilename )
         return $false
     }
 
+    $d =$CLImageStorDir | ConvertTo-SecureString  -AsPlainText -Force
+    write-host "CLISimage sotre is $d and $CLImageStorDir"
     if ( $CLImageStorDir )
     {
         # Check the path given as parameter
