@@ -778,7 +778,7 @@ function RunTests ([String] $xmlFilename )
             }
         }
         else {
-            Write-host -f "Error: Path $CLImageStorDir given as parameter does not exist"
+            Write-host -f Red "Error: Path $CLImageStorDir given as parameter does not exist"
             return $false
         }
     }
